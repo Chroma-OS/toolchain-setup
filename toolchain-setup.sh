@@ -5,6 +5,7 @@
 
 # Define Global Variables
 
+export DEBIAN_FRONTEND=noninteractive
 BINUTILS_VERSION=2.36
 GCC_VERSION=10.3.0
 GDB_VERSION=8.1
@@ -102,7 +103,7 @@ function installPackages {
     
     echoColor "Installing packages"
 
-    sudo DEBIAN_FRONTEND=noninteractive -E apt-get -qq install git \
+    apt-get -qq install git \
         autoconf automake autopoint bash bison bzip2 flex gettext\
         g++ gperf intltool libffi-dev libgdk-pixbuf2.0-dev \
         libtool libltdl-dev libssl-dev libxml-parser-perl make \
