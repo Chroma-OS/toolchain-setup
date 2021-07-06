@@ -6,7 +6,7 @@
 # Define Global Variables
 
 BINUTILS_VERSION=2.36
-GCC_VERSION=10.2.0
+GCC_VERSION=10.3.0
 GDB_VERSION=8.1
 x64=true
 
