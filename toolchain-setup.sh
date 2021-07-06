@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# i686-elf-tools.sh
-# v1.3
+# toolchain-setup.sh
+# v2.0
 
 # Define Global Variables
 
-BINUTILS_VERSION=2.28
-GCC_VERSION=7.1.0
-GDB_VERSION=8.0
+BINUTILS_VERSION=2.36
+GCC_VERSION=10.2.0
+GDB_VERSION=8.1
+x64=true
 
-BUILD_TARGET="i686-elf"
+BUILD_TARGET="x86_64-elf"
 
 set -e
 
@@ -40,7 +41,7 @@ case $key in
     linux)                  LINUX_ONLY=true;                           shift ;;
     zip)                    ZIP=true;              ALL_PRODUCTS=false; shift ;;
     env)                    ENV_ONLY=true;                             shift ;;
-    -64)                    x64=true;                                  shift ;;
+    -32)                    x64=false;                                 shift ;;
     -bv|--binutils-version) BINUTILS_VERSION="$2";                     shift; shift ;;
     -gv|--gcc-version)      GCC_VERSION="$2";                          shift; shift ;;
     -dv|--gdb-version)      GDB_VERSION="$2";                          shift; shift ;;
@@ -48,8 +49,8 @@ case $key in
 esac
 done
 
-if [[ $x64 == true ]]; then
-    BUILD_TARGET="x86_64-elf"
+if [[ $x64 == false ]]; then
+    BUILD_TARGET="i686-elf"
 fi
 
 BUILD_DIR="$HOME/build-${BUILD_TARGET}"
