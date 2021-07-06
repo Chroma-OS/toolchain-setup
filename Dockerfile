@@ -1,9 +1,10 @@
 ARG BASE_IMAGE=ubuntu:latest
 FROM $BASE_IMAGE
 
+ENV DEBIAN_FRONTEND=noninteractive 
 RUN mkdir /toolchain-setup
 COPY ./toolchain-setup.sh /toolchain-setup/toolchain-setup.sh
-RUN apt-get update && apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     git \
     wget \
     sudo \

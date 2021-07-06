@@ -102,7 +102,7 @@ function installPackages {
     
     echoColor "Installing packages"
 
-    sudo -E apt-get -qq install git \
+    sudo DEBIAN_FRONTEND=noninteractive -E apt-get -qq install git \
         autoconf automake autopoint bash bison bzip2 flex gettext\
         g++ gperf intltool libffi-dev libgdk-pixbuf2.0-dev \
         libtool libltdl-dev libssl-dev libxml-parser-perl make \
