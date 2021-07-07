@@ -347,11 +347,11 @@ function compileGCC {
 		
 		# Make libstdc++
 		echoColor "        Making libstdc++ (libstdc++_make.log)"
-		make all-target-libstdc++ >> libstdc++_make.log
+		make all-target-libstdc++-v3 >> libstdc++_make.log
 		
 		# Install libstdc++
 		echoColor "        Installing libstdc++ (libstdc++_install.log)"
-		make install-target-libstdc++ >> libstdc++_install.log
+		make install-target-libstdc++-v3 >> libstdc++_install.log
         
         cd ..
     else
